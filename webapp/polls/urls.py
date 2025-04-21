@@ -5,17 +5,14 @@ from . import views
 
 app_name = "polls"
 urlpatterns = [
-    # ex: /
     path("", views.index, name="index"),
-    
     path("register/", views.register, name="register"),
-
-    # ex: //5/
     path("<int:question_id>/", views.detail, name="detail"),
-    # ex: /5/results/
     path("<int:question_id>/results/", views.results, name="results"),
-    # ex: /5/vote/
+
     path("<int:question_id>/vote/", views.vote, name="vote"),
+    #FIX FLAW 5: Delete the line above and replace it with 
+    #path("<int:question_id>/vote/", views.vote, name="vote"),
     
     path("delete/<int:question_id>", views.delete, name="delete")
     

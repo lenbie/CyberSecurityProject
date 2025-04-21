@@ -70,7 +70,12 @@ def results(request, question_id):
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
-        selected_choice = question.choice_set.get(pk=request.POST["choice"])
+        #FIX FLAW 5 Add line below
+        #selected_choice = question.choice_set.get(pk=request.POST["choice"])
+        #FIX FLAW 5 Delete the following two lines
+        choice_id = request.GET.get("choice")
+        selected_choice = question.choice_set.get(pk=choice_id)
+
     except (KeyError, Choice.DoesNotExist):
         return render(
             request,

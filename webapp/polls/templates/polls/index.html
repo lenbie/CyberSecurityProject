@@ -14,8 +14,10 @@
     <p>{% if latest_question_list %}
             <ul>
             {% for question in latest_question_list %}
-              <form action="{% url 'polls:vote' question.id %}" method="post">
-                {% csrf_token %}
+              <form action="{% url 'polls:vote' question.id %}" method="get">
+              <!-- FIX FLAW 5: delete the line above and replace it with: 
+                  <form action="{% url 'polls:vote' question.id %}" method="post">
+                    {% csrf_token %}-->
                 <fieldset>
                     <legend><h1>{{ question.question_text }}</h1></legend>
                     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
