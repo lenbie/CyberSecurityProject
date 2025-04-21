@@ -9,6 +9,7 @@ Project I for Cyber Security Base 2025 course at University of Helsinki
   `python manage.py makemigrations`
 
   `python manage.py migrate`
+  
 4. Start the webapp server by running:
 
 `python manage.py runserver`
