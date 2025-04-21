@@ -2,7 +2,7 @@
 Project I for Cyber Security Base 2025 course at University of Helsinki
 
 
-## Installation and Running the Project
+## Installing and Running the Project
 1. Download the project.
 2. Navigate to the webapp directory
 3. Initialize the database by running the following commands:
