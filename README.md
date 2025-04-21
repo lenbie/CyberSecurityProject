@@ -15,4 +15,4 @@ Project I for Cyber Security Base 2025 course at University of Helsinki
 
 `python manage.py runserver`
 
-5. You can now go to [http://localhost:8000/polls](http://localhost:8000/polls) to view the web app.
+5. You can now go to [http://localhost:8000](http://localhost:8000) to view the web app.
