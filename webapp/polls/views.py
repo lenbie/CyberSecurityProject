@@ -4,13 +4,14 @@ from django.db.models import F
 from django.urls import reverse
 from django.db import connection
 
-from django.contrib.auth.decorators import login_required #ADD
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 
-## FIX FLAW 1 
-#from django.contrib.auth.password_validation import validate_password
-#from django.core.exceptions import ValidationError
+"""FIX FLAW 1 
+from django.contrib.auth.password_validation import validate_password
+from django.core.exceptions import ValidationError
+"""
 
 from .models import Choice, Question
 
@@ -70,9 +71,11 @@ def results(request, question_id):
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
-        #FIX FLAW 5 Add line below
-        #selected_choice = question.choice_set.get(pk=request.POST["choice"])
-        #FIX FLAW 5 Delete the following two lines
+        """
+        #FIX FLAW 5:
+        Add the line: selected_choice = question.choice_set.get(pk=request.POST["choice"])
+        Delete the following two lines
+        """
         choice_id = request.GET.get("choice")
         selected_choice = question.choice_set.get(pk=choice_id)
 
