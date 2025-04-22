@@ -56,23 +56,27 @@ def register(request):
     return render(request, "polls/register.html")
 """
 
-# FIX FLAW 3 @login_required
+# FIX FLAW 3 - uncomment line below
+# @login_required
 def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, "polls/detail.html", {"question": question})
 
-# FIX FLAW 3 @login_required
+# FIX FLAW 3 - uncomment line below
+# @login_required
 def results(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, "polls/results.html", {"question": question})
 
-# FIX FLAW 3 @login_required
+# FIX FLAW 3 - uncomment line below
+# @login_required
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
         """
-        #FIX FLAW 5:
-        Add the line: selected_choice = question.choice_set.get(pk=request.POST["choice"])
+        FIX FLAW 5:
+        Add the line: 
+        selected_choice = question.choice_set.get(pk=request.POST["choice"])
         Delete the following two lines
         """
         choice_id = request.GET.get("choice")
@@ -91,7 +95,7 @@ def vote(request, question_id):
         selected_choice.votes = F("votes") + 1
         selected_choice.save()
         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
-
+"""
 @login_required
 def delete(request, question_id):
 
@@ -100,12 +104,14 @@ def delete(request, question_id):
 
     return redirect("/")
 
-"""
-FIX FLAW 4
 
+FIX FLAW 4
+Replace the above delete function with this one:
+
+"""
 @login_required
 def delete(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     question.delete()
     return redirect("/")
-"""
+#"""

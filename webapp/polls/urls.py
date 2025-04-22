@@ -9,11 +9,7 @@ urlpatterns = [
     path("register/", views.register, name="register"),
     path("<int:question_id>/", views.detail, name="detail"),
     path("<int:question_id>/results/", views.results, name="results"),
-
     path("<int:question_id>/vote/", views.vote, name="vote"),
-    #FIX FLAW 5: Delete the line above and replace it with 
-    #path("<int:question_id>/vote/", views.vote, name="vote"),
-    
     path("delete/<int:question_id>", views.delete, name="delete")
     
 ]
