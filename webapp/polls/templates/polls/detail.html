@@ -11,9 +11,9 @@
             <input type="submit" value="Logout"/>
     </form>
 
-    <form action="{% url 'polls:vote' question.id %}" method="get">
+    <form action="{% url 'polls:vote' question.id %}" method="GET">
     <!-- FIX FLAW 5: delete the line above and replace it with: 
-    <form action="{% url 'polls:vote' question.id %}" method="post">
+    <form action="{% url 'polls:vote' question.id %}" method="POST">
       {% csrf_token %}-->
       <fieldset>
           <legend><h1>{{ question.question_text }}</h1></legend>

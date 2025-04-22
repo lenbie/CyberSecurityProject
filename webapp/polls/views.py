@@ -36,7 +36,7 @@ def register(request):
     return render(request, "polls/register.html")
 
 """
-FIX FLAW 1
+FIX FLAW 1: Replace the above register function with this new register function
 def register(request):
     if request.method == "POST":
         username = request.POST["username"]
@@ -52,7 +52,6 @@ def register(request):
 
         user = User.objects.create_user(username=username, password=password)
         return redirect("login")
-
 
     return render(request, "polls/register.html")
 """
