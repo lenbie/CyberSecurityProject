@@ -95,23 +95,24 @@ def vote(request, question_id):
         selected_choice.votes = F("votes") + 1
         selected_choice.save()
         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
-"""
+
+
 @login_required
-def delete(request, question_id):
+def delete(request, question_id, choice_id):
 
     with connection.cursor() as cursor:
-        cursor.execute(f"DELETE FROM polls_question WHERE id = {question_id}")
+        cursor.execute(f"DELETE FROM polls_choice WHERE question_id = {question_id} and id = {choice_id}")
 
     return redirect("/")
 
-
+"""
 FIX FLAW 4
 Replace the above delete function with this one:
 
-"""
 @login_required
-def delete(request, question_id):
+def delete(request, question_id, choice_id):
     question = get_object_or_404(Question, pk=question_id)
-    question.delete()
+    selected_choice = question.choice_set.get(pk=choice_id)
+    selected_choice.delete()
     return redirect("/")
-#"""
+"""

@@ -10,6 +10,9 @@ urlpatterns = [
     path("<int:question_id>/", views.detail, name="detail"),
     path("<int:question_id>/results/", views.results, name="results"),
     path("<int:question_id>/vote/", views.vote, name="vote"),
-    path("delete/<int:question_id>", views.delete, name="delete")
-    
+
+    path("delete/<int:question_id>/<str:choice_id>", views.delete, name="delete")
+    #Fix Flaw 4: Replace the above with
+    #path("delete/<int:question_id>/<int:choice_id>", views.delete, name="delete")
+
 ]
